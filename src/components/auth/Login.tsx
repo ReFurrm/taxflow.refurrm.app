@@ -14,6 +14,8 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const { signIn } = useAuth();
   const navigate = useNavigate();
+  const adminEmail = 'admin@sample.com';
+  const adminPassword = 'test123password!';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,6 +54,24 @@ export default function Login() {
               Sign In
             </Button>
           </form>
+          {import.meta.env.DEV && (
+            <div className="mt-4 space-y-2">
+              <Button
+                type="button"
+                variant="outline"
+                className="w-full"
+                onClick={() => {
+                  setEmail(adminEmail);
+                  setPassword(adminPassword);
+                }}
+              >
+                Use admin login ({adminEmail})
+              </Button>
+              <p className="text-xs text-muted-foreground text-center">
+                Dev-only helper. Ensure the user exists in Supabase Auth.
+              </p>
+            </div>
+          )}
           <div className="mt-4 text-center text-sm space-y-2">
             <Link to="/reset-password" className="text-blue-600 hover:underline">Forgot password?</Link>
             <div>Don't have an account? <Link to="/signup" className="text-blue-600 hover:underline">Sign up</Link></div>
