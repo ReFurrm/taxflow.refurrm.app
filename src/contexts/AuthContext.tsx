@@ -26,17 +26,20 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [isEmailVerified, setIsEmailVerified] = useState(false);
+  const devAdminEmail = 'admin@sample.com';
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null);
-      setIsEmailVerified(session?.user?.email_confirmed_at ? true : false);
+      const verified = session?.user?.email_confirmed_at ? true : false;
+      setIsEmailVerified(import.meta.env.DEV && session?.user?.email === devAdminEmail ? true : verified);
       setLoading(false);
     });
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
-      setIsEmailVerified(session?.user?.email_confirmed_at ? true : false);
+      const verified = session?.user?.email_confirmed_at ? true : false;
+      setIsEmailVerified(import.meta.env.DEV && session?.user?.email === devAdminEmail ? true : verified);
     });
 
     return () => subscription.unsubscribe();

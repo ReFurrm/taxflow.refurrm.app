@@ -12,7 +12,7 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const { signIn } = useAuth();
+  const { signIn, signUp } = useAuth();
   const navigate = useNavigate();
   const adminEmail = 'admin@sample.com';
   const adminPassword = 'test123password!';
@@ -30,6 +30,27 @@ export default function Login() {
       toast({ title: 'Success', description: 'Logged in successfully!' });
       navigate('/');
     }
+  };
+
+  const handleCreateAdmin = async () => {
+    setLoading(true);
+    const { error: signUpError } = await signUp(adminEmail, adminPassword, { full_name: 'Admin' });
+
+    if (signUpError && !/already registered/i.test(signUpError.message)) {
+      toast({ title: 'Error', description: signUpError.message, variant: 'destructive' });
+      setLoading(false);
+      return;
+    }
+
+    const { error: signInError } = await signIn(adminEmail, adminPassword);
+    if (signInError) {
+      toast({ title: 'Error', description: signInError.message, variant: 'destructive' });
+      setLoading(false);
+      return;
+    }
+
+    toast({ title: 'Success', description: 'Admin user ready.' });
+    navigate('/');
   };
 
   return (
@@ -66,6 +87,15 @@ export default function Login() {
                 }}
               >
                 Use admin login ({adminEmail})
+              </Button>
+              <Button
+                type="button"
+                variant="secondary"
+                className="w-full"
+                onClick={handleCreateAdmin}
+                disabled={loading}
+              >
+                Create / sign in admin (dev)
               </Button>
               <p className="text-xs text-muted-foreground text-center">
                 Dev-only helper. Ensure the user exists in Supabase Auth.
