@@ -1,42 +1,42 @@
 # TaxBandits Sandbox Details (Fill In)
 
 ## 1) API Credentials
-- Client ID:bc5e287702afb93c
-- Client Secret:YWJmNmQ3ZDcwZWUyNGM1NWJjNWUyODc3MDJhZmI5M2M
-- User Token:3cf97cc0ca5e4691a378c85cae1d1910
+- Client ID: <FILL IN>
+- Client Secret: <FILL IN>
+- User Token: <FILL IN>
 
 ## 2) Sandbox Base URL + Version
-- Base URL:
-- API Version:
+- Base URL: <FILL IN>
+- API Version: <FILL IN>
 
 ## 3) Webhooks
-- Webhook endpoint URL(s):
-- Events to subscribe to:
-- Signing/verification method:
-- Required headers:
-- Sample webhook payload(s):
+- Webhook endpoint URL(s): <FILL IN>
+- Events to subscribe to: <FILL IN>
+- Signing/verification method: <FILL IN>
+- Required headers: <FILL IN>
+- Sample webhook payload(s): <FILL IN>
 
 ## 4) Payer Business Record
-- Existing Business ID (if created in sandbox):
-- Permission to create new Business? (yes/no):
-- Business Name:
-- EIN:
-- Address:
+- Existing Business ID (if created in sandbox): <FILL IN>
+- Permission to create new Business? (yes/no): <FILL IN>
+- Business Name: <FILL IN>
+- EIN: <FILL IN>
+- Address: <FILL IN>
 
 ## 5) Payee Test Data (W-9 / 1099)
-- Required formats/constraints:
-- Sample payee #1 (Name, Address, TIN):
-- Sample payee #2 (Name, Address, TIN):
+- Required formats/constraints: <FILL IN>
+- Sample payee #1 (Name, Address, TIN): <FILL IN>
+- Sample payee #2 (Name, Address, TIN): <FILL IN>
 
 ## 6) Flow Requirements
-- Required order (e.g., W-9 → TIN match → 1099 create → 1099 e-file):
-- Any optional steps:
+- Required order (e.g., W-9 → TIN match → 1099 create → 1099 e-file): <FILL IN>
+- Any optional steps: <FILL IN>
 
 ## 7) Limits / Constraints
-- Rate limits:
-- Payload size limits:
-- Sandbox constraints or known quirks:
+- Rate limits: <FILL IN>
+- Payload size limits: <FILL IN>
+- Sandbox constraints or known quirks: <FILL IN>
 
 ## 8) Console Access
-- Console URL:
-- Team contact for sandbox issues:
+- Console URL: <FILL IN>
+- Team contact for sandbox issues: <FILL IN>
